@@ -40,6 +40,10 @@ export class PageSnapshot extends Snapshot<HTMLBodyElement> {
       }
     }
 
+    clonedElement.querySelectorAll<HTMLInputElement>('input[type="password"]').forEach((clonedPasswordInput) => {
+      clonedPasswordInput.value = ''
+    })
+
     return new PageSnapshot(clonedElement, this.headSnapshot)
   }
 
